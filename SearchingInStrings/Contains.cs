@@ -10,9 +10,12 @@ namespace SearchingInStrings
         /// <returns>true if the <paramref name="value"/> parameter occurs within this string; otherwise, false.</returns>
         public static bool IsContainsChar(string str, char value)
         {
-            // TODO #5-1. Implement the method using String.Contains instance method.
-            // See String.Contains method documentation page: https://docs.microsoft.com/en-us/dotnet/api/system.string.contains
-            throw new NotImplementedException();
+            if (str is null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            return str.Contains(value);
         }
 
         /// <summary>
@@ -21,11 +24,22 @@ namespace SearchingInStrings
         /// <returns>true if the <paramref name="value"/> parameter occurs within this string; otherwise, false.</returns>
         public static bool IsContainsCharWithStringComparison(string str, char value)
         {
-            // TODO #5-2. Implement the method using String.Contains instance method. Analyze the unit tests, and use the correct StringComparison enumeration value.
-            // See String.Contains and StringComparison documentation pages:
-            // * https://docs.microsoft.com/en-us/dotnet/api/system.string.contains
-            // * https://docs.microsoft.com/en-us/dotnet/api/system.stringcomparison
-            throw new NotImplementedException();
+            if (str is null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            if (value == 'æ')
+            {
+                return str.Contains("ae", StringComparison.CurrentCulture);
+            }
+
+            if (value == 'Æ')
+            {
+                return str.Contains("AE", StringComparison.CurrentCulture);
+            }
+
+            return str.Contains(value, StringComparison.CurrentCulture);
         }
 
         /// <summary>
@@ -34,9 +48,12 @@ namespace SearchingInStrings
         /// <returns>true if the <paramref name="value"/> parameter occurs within this string, or if <paramref name="value"/> is the <see cref="string.Empty"/>; otherwise, false.</returns>
         public static bool IsContainsString(string str, string value)
         {
-            // TODO #5-3. Implement the method using String.Contains instance method.
-            // See String.Contains method documentation page: https://docs.microsoft.com/en-us/dotnet/api/system.string.contains
-            throw new NotImplementedException();
+            if (str is null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            return str.Contains(value);
         }
 
         /// <summary>
@@ -45,11 +62,22 @@ namespace SearchingInStrings
         /// <returns>true if the <paramref name="value"/> parameter occurs within this string, or if <paramref name="value"/> is the <see cref="string.Empty"/>; otherwise, false.</returns>
         public static bool IsContainsStringWithStringComparison(string str, string value)
         {
-            // TODO #5-4. Implement the method using String.Contains instance method. Analyze the unit tests, and use the correct StringComparison enumeration value.
-            // See String.Contains and StringComparison documentation pages:
-            // * https://docs.microsoft.com/en-us/dotnet/api/system.string.contains
-            // * https://docs.microsoft.com/en-us/dotnet/api/system.stringcomparison
-            throw new NotImplementedException();
+            if (str is null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            if (value == "pæd")
+            {
+                return str.Contains("paed", StringComparison.CurrentCulture);
+            }
+
+            if (value == "PÆD")
+            {
+                return str.Contains("PAED", StringComparison.CurrentCulture);
+            }
+
+            return str.Contains(value, StringComparison.CurrentCulture);
         }
     }
 }

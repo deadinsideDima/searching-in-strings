@@ -10,9 +10,7 @@ namespace SearchingInStrings
         /// <returns>The index position of the last occurrence in this instance where any character in <paramref value="anyOf" />was found; -1 if no character in <paramref value="anyOf" />was found or if the current instance equals Empty.</returns>
         public static int GetLastIndexOfAny(string str, char[] anyOf)
         {
-            // TODO #4-1. Implement the method using String.LastIndexOfAny instance method.
-            // See String.IndexOfAny method documentation page: https://docs.microsoft.com/en-us/dotnet/api/system.string.lastindexofany
-            throw new NotImplementedException();
+            return str.LastIndexOfAny(anyOf);
         }
 
         /// <summary>
@@ -21,9 +19,7 @@ namespace SearchingInStrings
         /// <returns>The index position of the last occurrence in this instance where any character in <paramref value="anyOf" />was found; -1 if no character in <paramref value="anyOf" />was found or if the current instance equals Empty.</returns>
         public static int GetLastIndexOfAny(string str, char[] anyOf, int startIndex)
         {
-            // TODO #4-2. Implement the method using String.LastIndexOfAny instance method.
-            // See String.IndexOfAny method documentation page: https://docs.microsoft.com/en-us/dotnet/api/system.string.lastindexofany
-            throw new NotImplementedException();
+            return str.LastIndexOfAny(anyOf, startIndex);
         }
 
         /// <summary>
@@ -32,9 +28,7 @@ namespace SearchingInStrings
         /// <returns>The index position of the last occurrence in this instance where any character in <paramref value="anyOf" />was found; -1 if no character in <paramref value="anyOf" />was found or if the current instance equals Empty.</returns>
         public static int GetLastIndexOfAny(string str, char[] anyOf, int startIndex, int count)
         {
-            // TODO #4-3. Implement the method using String.LastIndexOfAny instance method.
-            // See String.IndexOfAny method documentation page: https://docs.microsoft.com/en-us/dotnet/api/system.string.lastindexofany
-            throw new NotImplementedException();
+            return str.LastIndexOfAny(anyOf, startIndex, count);
         }
     }
 }

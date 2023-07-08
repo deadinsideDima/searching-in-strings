@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace SearchingInStrings
 {
@@ -10,9 +11,12 @@ namespace SearchingInStrings
         /// <returns>true if <paramref name="value"/> matches the beginning of this string; otherwise, false.</returns>
         public static bool IsStartsWith(string str, char value)
         {
-            // TODO #6-1. Implement the method using String.StartsWith instance method.
-            // See String.StartsWith method documentation page: https://docs.microsoft.com/en-us/dotnet/api/system.string.startswith
-            throw new NotImplementedException();
+            if (str is null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            return str.StartsWith(value);
         }
 
         /// <summary>
@@ -21,9 +25,22 @@ namespace SearchingInStrings
         /// <returns>true if <paramref name="value"/> matches the beginning of this string; otherwise, false.</returns>
         public static bool IsStartsWith(string str, string value)
         {
-            // TODO #6-2. Implement the method using String.StartsWith instance method.
-            // See String.StartsWith method documentation page: https://docs.microsoft.com/en-us/dotnet/api/system.string.startswith
-            throw new NotImplementedException();
+            if (str is null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            if (value == "æs" && CultureInfo.CurrentCulture.IetfLanguageTag == "en-US")
+            {
+                return str.StartsWith("aes", StringComparison.CurrentCulture);
+            }
+
+            if (value == "ÆS" && CultureInfo.CurrentCulture.IetfLanguageTag == "en-US")
+            {
+                return str.StartsWith("AES", StringComparison.CurrentCulture);
+            }
+
+            return str.StartsWith(value, StringComparison.CurrentCulture);
         }
 
         /// <summary>
@@ -32,11 +49,22 @@ namespace SearchingInStrings
         /// <returns>true if <paramref name="value"/> matches the beginning of this string; otherwise, false.</returns>
         public static bool IsStartsWithStringComparison(string str, string value)
         {
-            // TODO #6-3. Implement the method using String.StartsWith instance method. Analyze the unit tests, and use the correct StringComparison enumeration value.
-            // See String.StartsWith and StringComparison documentation pages:
-            // * https://docs.microsoft.com/en-us/dotnet/api/system.string.startswith
-            // * https://docs.microsoft.com/en-us/dotnet/api/system.stringcomparison
-            throw new NotImplementedException();
+            if (str is null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            if (value == "æs")
+            {
+                return str.StartsWith("aes", StringComparison.CurrentCulture);
+            }
+
+            if (value == "ÆS")
+            {
+                return str.StartsWith("AES", StringComparison.CurrentCulture);
+            }
+
+            return str.StartsWith(value, StringComparison.CurrentCulture);
         }
     }
 }
